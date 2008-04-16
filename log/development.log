@@ -1,0 +1,534 @@
+  [4;36;1mSQL (0.001043)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.012170)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.010827)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddContact (1)
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: no such table: contacts: DROP TABLE contacts[0m
+  [4;36;1mSQL (0.001644)[0m   [0;1mCREATE TABLE contacts ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255) DEFAULT NULL, "last_name" varchar(255) DEFAULT NULL, "email" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.001653)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000238)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mPRAGMA index_list(contacts)[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-04-15 21:49:45) [GET]
+  Session ID: 601d18fba67abcac6a91536410c20fba
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/contacts/new" with {:method=>:get}):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/bin/mongrel_rails:19:in `load'
+    /opt/local/bin/mongrel_rails:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2008-04-15 21:50:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--14fc41c7d4755f37c3f6c8180ec8e8db49776047
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+
+
+NameError (uninitialized constant ContactsController):
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:266:in `load_missing_constant'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:453:in `const_missing'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:465:in `const_missing'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/inflector.rb:257:in `constantize'
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1426:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/bin/mongrel_rails:19:in `load'
+    /opt/local/bin/mongrel_rails:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 21:50:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--14fc41c7d4755f37c3f6c8180ec8e8db49776047
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+
+
+ActionView::TemplateError (undefined method `submit_tag' for #<ActionView::Helpers::FormBuilder:0x24ff978>) on line #5 of contacts/new.html.erb:
+2: 	<%= f.text_field :first_name %>
+3: 	<%= f.text_field :last_name %>
+4: 	<%= f.text_field :email %>
+5: 	<%= f.submit_tag %>
+6: <% end %>
+    app/views/contacts/new.html.erb:5:in `_run_erb_47app47views47contacts47new46html46erb'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/contacts/new.html.erb:1:in `_run_erb_47app47views47contacts47new46html46erb'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/bin/mongrel_rails:19:in `load'
+    /opt/local/bin/mongrel_rails:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 21:50:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00853 (117 reqs/sec) | Rendering: 0.00657 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 21:54:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00928 (107 reqs/sec) | Rendering: 0.00711 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 21:55:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00880 (113 reqs/sec) | Rendering: 0.00695 (78%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 21:56:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01672 (59 reqs/sec) | Rendering: 0.01485 (88%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:00:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00926 (107 reqs/sec) | Rendering: 0.00712 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:00:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00908 (110 reqs/sec) | Rendering: 0.00707 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:00:31) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01037 (96 reqs/sec) | Rendering: 0.00778 (75%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:01:13) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.02159 (46 reqs/sec) | Rendering: 0.01955 (90%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:01:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00884 (113 reqs/sec) | Rendering: 0.00683 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:01:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01068 (93 reqs/sec) | Rendering: 0.00718 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:01:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00933 (107 reqs/sec) | Rendering: 0.00726 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:01:37) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00872 (114 reqs/sec) | Rendering: 0.00666 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:02:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01029 (97 reqs/sec) | Rendering: 0.00830 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:02:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00919 (108 reqs/sec) | Rendering: 0.00721 (78%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:02:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.02681 (37 reqs/sec) | Rendering: 0.02415 (90%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:04:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00966 (103 reqs/sec) | Rendering: 0.00751 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:04:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01139 (87 reqs/sec) | Rendering: 0.00916 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:05:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00923 (108 reqs/sec) | Rendering: 0.00703 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#create (for 127.0.0.1 at 2008-04-15 22:06:44) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"commit"=>"Save changes", "contact"=>{"first_name"=>"Jonathan", "last_name"=>"Vaught", "email"=>"rockdog@gmail.com"}, "authenticity_token"=>"928a06f36f08a522cb4bff7d73c45813a65f915e", "action"=>"create", "controller"=>"contacts"}
+  [4;36;1mContact Create (0.000908)[0m   [0;1mINSERT INTO contacts ("updated_at", "first_name", "last_name", "created_at", "email") VALUES('2008-04-15 22:06:44', 'Jonathan', 'Vaught', '2008-04-15 22:06:44', 'rockdog@gmail.com')[0m
+
+
+ActionController::MissingTemplate (Missing template contacts/create.html.erb in view path /Users/jvaught/Sites/casseroles/app/views):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1269:in `assert_existence_of_template_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1098:in `render_for_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/bin/mongrel_rails:19:in `load'
+    /opt/local/bin/mongrel_rails:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:12:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01134 (88 reqs/sec) | Rendering: 0.00888 (78%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:13:04) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.00348 (287 reqs/sec) | Rendering: 0.00101 (29%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:13:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.02114 (47 reqs/sec) | Rendering: 0.01685 (79%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#create (for 127.0.0.1 at 2008-04-15 22:13:35) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"commit"=>"Save changes", "contact"=>{"first_name"=>"Stephanie", "last_name"=>"Vaught", "email"=>"swvaught@mac.com"}, "authenticity_token"=>"928a06f36f08a522cb4bff7d73c45813a65f915e", "action"=>"create", "controller"=>"contacts"}
+  [4;35;1mContact Create (0.000627)[0m   [0mINSERT INTO contacts ("updated_at", "first_name", "last_name", "created_at", "email") VALUES('2008-04-15 22:13:35', 'Stephanie', 'Vaught', '2008-04-15 22:13:35', 'swvaught@mac.com')[0m
+Rendering contacts/new
+Completed in 0.01614 (61 reqs/sec) | Rendering: 0.00203 (12%) | DB: 0.00063 (3%) | 200 OK [http://localhost/contacts]
+
+
+Processing ContactsController#create (for 127.0.0.1 at 2008-04-15 22:14:07) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIh5UaGFuayB5b3UgZm9yIHNpZ25pbmcgdXAhBjoKQHVz%0AZWR7BjsHVA%3D%3D--66eb745bc78958013cba7ab75d0e07b19b4d685c
+  Parameters: {"commit"=>"Save changes", "contact"=>{"first_name"=>"April", "last_name"=>"Smith", "email"=>"uhlmeyera@hotmail.com"}, "authenticity_token"=>"928a06f36f08a522cb4bff7d73c45813a65f915e", "action"=>"create", "controller"=>"contacts"}
+  [4;36;1mContact Create (0.000459)[0m   [0;1mINSERT INTO contacts ("updated_at", "first_name", "last_name", "created_at", "email") VALUES('2008-04-15 22:14:07', 'April', 'Smith', '2008-04-15 22:14:07', 'uhlmeyera@hotmail.com')[0m
+Rendering contacts/new
+Completed in 0.01586 (63 reqs/sec) | Rendering: 0.00208 (13%) | DB: 0.00046 (2%) | 200 OK [http://localhost/contacts]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:15:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIh5UaGFuayB5b3UgZm9yIHNpZ25pbmcgdXAhBjoKQHVz%0AZWR7BjsHVA%3D%3D--66eb745bc78958013cba7ab75d0e07b19b4d685c
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01127 (88 reqs/sec) | Rendering: 0.00844 (74%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:15:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01115 (89 reqs/sec) | Rendering: 0.00824 (73%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#show (for 127.0.0.1 at 2008-04-15 22:15:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"show", "id"=>"asda", "controller"=>"contacts"}
+
+
+ActionController::UnknownAction (No action responded to show):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/bin/mongrel_rails:19:in `load'
+    /opt/local/bin/mongrel_rails:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:17:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01427 (70 reqs/sec) | Rendering: 0.01167 (81%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#index (for 127.0.0.1 at 2008-04-15 22:17:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"index", "controller"=>"contacts"}
+
+
+ActionController::UnknownAction (No action responded to index):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /opt/local/bin/mongrel_rails:19:in `load'
+    /opt/local/bin/mongrel_rails:19
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:17:31) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering contacts/new
+Completed in 0.01136 (88 reqs/sec) | Rendering: 0.00881 (77%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#new (for 127.0.0.1 at 2008-04-15 22:18:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"action"=>"new", "controller"=>"contacts"}
+Rendering template within layouts/contacts
+Rendering contacts/new
+Completed in 0.02201 (45 reqs/sec) | Rendering: 0.01771 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/contacts/new]
+
+
+Processing ContactsController#create (for 127.0.0.1 at 2008-04-15 22:18:50) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMjc4ZTkyYTdmMGI1MTgyYjMxY2ZhZmI3ZDhkNzJi%0ANWEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--94756f445e5f69afebc2f87f563826df9ce8c7ee
+  Parameters: {"commit"=>"Save changes", "contact"=>{"first_name"=>"Rob", "last_name"=>"Roy", "email"=>"robroy@gmail.com"}, "authenticity_token"=>"928a06f36f08a522cb4bff7d73c45813a65f915e", "action"=>"create", "controller"=>"contacts"}
+  [4;35;1mContact Create (0.000981)[0m   [0mINSERT INTO contacts ("updated_at", "first_name", "last_name", "created_at", "email") VALUES('2008-04-15 22:18:50', 'Rob', 'Roy', '2008-04-15 22:18:50', 'robroy@gmail.com')[0m
+Rendering template within layouts/contacts
+Rendering contacts/new
+Completed in 0.02228 (44 reqs/sec) | Rendering: 0.00319 (14%) | DB: 0.00098 (4%) | 200 OK [http://localhost/contacts]
+  [4;36;1mContact Load (0.003642)[0m   [0;1mSELECT * FROM contacts [0m
