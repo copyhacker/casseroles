@@ -1,0 +1,17 @@
+<h1>Mailing List Signup</h1>
+
+<% form_for Contact.new do |f| %>
+	<div>
+		<label for="first_name">First name:</label>
+		<%= f.text_field :first_name %>
+	</div>
+	<div>
+		<label for="last_name">Last name:</label>
+		<%= f.text_field :last_name %>
+	</div>
+	<div>
+		<label for="email">Email:</label>
+		<%= f.text_field :email %>
+	</div>
+	<%= f.submit %>
+<% end %>
