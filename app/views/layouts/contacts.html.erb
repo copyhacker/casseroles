@@ -3,11 +3,19 @@
 <head>
 	<title>Caring Casseroles</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<%= stylesheet_link_tag "scaffold" %>
+	<%#= stylesheet_link_tag "scaffold" %>
+
+	<link rel="stylesheet" href="stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="stylesheets/blueprint/print.css" type="text/css" media="print"> 
+	<!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
 	<%= javascript_include_tag :defaults %>
 </head>
+
 <body>
+<div class="container">
 	<%= flash[:notice] %>
 	<%= yield %>
+</div>
 </body>
 </html>
