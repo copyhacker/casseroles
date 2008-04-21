@@ -1,0 +1,17 @@
+body { background-color: rgb(255, 248, 227); color: #333; }
+
+#title_bar {
+  background: url("/images/titlearea.jpg");
+  background-position: bottom;
+  color: #33332d; 
+}
+
+#title_bar a {
+  color: #33332d; 
+}
+
+#title_bar h1 {
+  padding-left: 6px;
+  padding-top: 6px;
+  color: #33332d; 
+}
