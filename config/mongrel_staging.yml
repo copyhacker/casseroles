@@ -1,0 +1,10 @@
+--- 
+cwd: "/u/staging/apps/casseroles/current"
+user: casserolesdeploy
+group: casserolesdeploy
+log_file: log/mongrel.log
+port: "16000"
+environment: staging
+address: 127.0.0.1
+pid_file: log/mongrel.pid
+servers: 3
