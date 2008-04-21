@@ -42,7 +42,14 @@ namespace :deploy do
       run "cp #{current_path}/public/maintenance.html #{shared_path}/system/maintenance.html"
     end
   end
+  
+  desc "Setup to be run"
+  task :after_update_code do
+    # Link up the production database (temp)
+    run "ln -nfs #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
+  end
 end
+
 namespace :deploy do
   task :full do
     transaction do
