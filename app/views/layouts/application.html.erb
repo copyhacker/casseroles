@@ -4,8 +4,8 @@
 	<title>Caring Casseroles</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<link rel="stylesheet" href="stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
-	<link rel="stylesheet" href="stylesheets/blueprint/print.css" type="text/css" media="print"> 
+	<link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="/stylesheets/blueprint/print.css" type="text/css" media="print"> 
 	<!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
 	<%= stylesheet_link_tag 'casseroles', :media => 'screen' %>
@@ -15,9 +15,8 @@
 <body>
 <div class="container">
 	<h1>Caring Casseroles</h1>
-	
+	<p><%= link_to 'Home', root_path %> | <%= link_to 'About Us', :controller => 'home', :action => 'about' %></p>
 	<%= flash[:notice] %>
-	<% raise 'Boom' %>
 	<%= yield %>
 </div>
 </body>

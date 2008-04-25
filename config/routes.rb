@@ -24,10 +24,19 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
   
+  map.signup 'signup', :controller => "contacts", :action => "new"
+  
   map.resources :contacts
 
+  map.with_options :controller => "home" do |home|
+    home.resource :home
+    # home.privacy '/privacy', :action=>"privacy"
+    # home.terms '/terms', :action=>"terms"
+    home.about '/about', :action => "about"
+  end
+
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "contacts", :action => 'new'
+  map.root :controller => "home"
 
   # See how all your routes lay out with "rake routes"
 

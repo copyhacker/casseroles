@@ -1,4 +1,4 @@
-class ContactsController < ActionController::Base
+class ContactsController < ApplicationController
   def new; end
   
   def create
