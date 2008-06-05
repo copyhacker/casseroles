@@ -15,7 +15,11 @@
 <body>
 <div class="container">
 	<h1>Caring Casseroles</h1>
-	<p><%= link_to 'Home', root_path %> | <%= link_to 'About Us', :controller => 'home', :action => 'about' %></p>
+	<p>
+		<%= link_to 'Home', root_path %> | 
+		<%= link_to 'About Us', :controller => 'home', :action => 'about' %> |
+		<%= link_to 'FAQ', :controller => 'home', :action => 'faq' %>
+	</p>
 	<%= flash[:notice] %>
 	<%= yield %>
 </div>

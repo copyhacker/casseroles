@@ -1,0 +1,25 @@
+<h2>Frequently Asked Questions</h2>
+
+<p>So you're ready to donate?  Thank you!  Here are answers to some common questions.</p>
+
+<% faq 'What size should my casserole be?' do %>
+	<p>Please use either an 8x8 or 9x13 casserole dish.</p>
+<% end %>
+
+<% faq 'What information should I include with my donation?' do %>
+	<p>
+		Please attach a label with the following information:<br /> 
+		<ul>
+			<li>Date made</li>
+			<li>Reheat instructions</li>
+			<li>The recipe, or a list of ingredients, in case of allergies</li>
+		</ul>
+		
+		If you like, you can print and use <%= link_to 'our provided labels', '/labels.html' %>. 
+	</p>
+<% end %>
+
+<% faq "I'd like to take my casserole directly to the hospital.  Where do I go?" do %>
+	<p>Palmetto Health Baptist is located at 1330 Taylor Street.  Park in the Taylor Street garage and take the crosswalk.  Take the elevator to the 4th floor.  As you come out of elevator, turn left and follow the signs to the Neonatal Intensive Care Unit.  Ring the doorbell and tell them you are dropping off a casserole for Caring Casseroles.</p>
+<% end %>
+
