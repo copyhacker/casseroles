@@ -8,4 +8,8 @@ class ContactsController < ApplicationController
     flash[:notice] = 'Thank you for signing up!'
     render :action => 'new'
   end
+  
+  def index
+    @contacts = Contact.find(:all, :order => 'last_name')
+  end
 end
