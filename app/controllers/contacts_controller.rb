@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  before_filter :login_required, :only => :index
+
   def new; end
   
   def create
@@ -11,5 +13,9 @@ class ContactsController < ApplicationController
   
   def index
     @contacts = Contact.find(:all, :order => 'last_name')
+  end
+
+  def authorized?
+    logged_in? && current_user.admin?
   end
 end
