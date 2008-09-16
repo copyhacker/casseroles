@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -58,5 +58,5 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
 end
 
-ExceptionNotifier.exception_recipients = %w{ jvaught@elevatedrails.com }
-ExceptionNotifier.email_prefix = "[CASSEROLES] "
+# ExceptionNotifier.exception_recipients = %w{ jvaught@elevatedrails.com }
+# ExceptionNotifier.email_prefix = "[CASSEROLES] "
