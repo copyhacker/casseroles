@@ -60,3 +60,5 @@ end
 
 # ExceptionNotifier.exception_recipients = %w{ jvaught@elevatedrails.com }
 # ExceptionNotifier.email_prefix = "[CASSEROLES] "
+
+require 'label_tag'
