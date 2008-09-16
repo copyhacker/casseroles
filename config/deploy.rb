@@ -49,6 +49,9 @@ namespace :deploy do
   task :after_update_code do
     # Link up the production database (temp)
     run "ln -nfs #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
+
+    # Link up the restful_auth site keys
+    run "ln -nfs #{shared_path}/system/site_keys.rb #{release_path}/config/initializers/site_keys.rb"
   end
 end
 
