@@ -4,9 +4,7 @@ class SessionsController < ApplicationController
   include AuthenticatedSystem
 
   # render new.rhtml
-  def new
-    self.current_user = nil
-  end
+  def new; end
 
   def create
     logout_keeping_session!

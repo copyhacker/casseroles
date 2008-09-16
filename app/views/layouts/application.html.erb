@@ -19,9 +19,18 @@
 		<%= link_to 'Home', root_path %> | 
 		<%= link_to 'About Us', :controller => 'home', :action => 'about' %> |
 		<%= link_to 'FAQ', :controller => 'home', :action => 'faq' %>
+		<% if logged_in? %>
+			<% if current_user.admin? %>
+				| <%= link_to "Contacts", contacts_path %> 
+			<% end %>	
+			| <%= link_to "Logout #{current_user.login}", logout_path %>
+		<% end %>
 	</p>
+	
 	<%= flash[:notice] %>
+
 	<%= yield %>
+
 </div>
 </body>
 </html>
