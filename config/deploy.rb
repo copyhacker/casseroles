@@ -1,7 +1,6 @@
 require 'mongrel_cluster/recipes'
 
 set :application, "casseroles"
-# set :repository,  "git+ssh://casserolesdeploy@dev.elevatedrails.com/var/git/clients/casseroles"
 set :repository,  "git@github.com:gravelpup/casseroles.git"
 
 
@@ -24,6 +23,7 @@ when 'staging'
   set :deploy_to, "/u/staging/apps/#{application}"
   set :mongrel_conf, "#{current_path}/config/mongrel_staging.yml"
   set :rails_env, "staging"
+
 when 'production'
   role :app, "basie.elevatedrails.com"
   role :web, "basie.elevatedrails.com"
@@ -33,10 +33,34 @@ when 'production'
   set :deploy_to, "/u/apps/#{application}"
   set :mongrel_conf, "#{current_path}/config/mongrel.yml"
   set :rails_env, "production"
+
+when 'dreamhost'
+  role :app, "208.113.185.207"
+  role :web, "208.113.185.207"
+  role :db,  "208.113.185.207", :primary => true
+  set :user, "jvsrc"
+  set :use_sudo, false
+  set :deploy_to, "/home/jvsrc/#{application}"
+  # set :mongrel_conf, "#{current_path}/config/mongrel_staging.yml"
+  set :rails_env, "staging"
+  
 else  warn "I only know how to deploy to staging or production"
   warn "Try prepending DEPLOY_TO=staging."
   exit(1)
 end
+
+
+#############################################################
+#	Passenger
+#############################################################
+
+namespace :deploy do
+  desc "Restarting Passenger"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
+
 
 namespace :deploy do
   namespace :web do
@@ -55,6 +79,7 @@ namespace :deploy do
   end
 end
 
+
 namespace :deploy do
   task :full do
     transaction do
@@ -69,4 +94,3 @@ namespace :deploy do
     cleanup
   end
 end
-
