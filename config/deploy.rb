@@ -42,7 +42,7 @@ when 'dreamhost'
   set :use_sudo, false
   set :deploy_to, "/home/jvsrc/#{application}"
   # set :mongrel_conf, "#{current_path}/config/mongrel_staging.yml"
-  set :rails_env, "staging"
+  set :rails_env, "production"
   
 else  warn "I only know how to deploy to staging or production"
   warn "Try prepending DEPLOY_TO=staging."
