@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
     # home.privacy '/privacy', :action=>"privacy"
     # home.terms '/terms', :action=>"terms"
     home.about '/about', :action => "about"
+    home.news '/news', :action => "news"
   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.

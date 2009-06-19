@@ -17,6 +17,7 @@
 	<h1>Caring Casseroles</h1>
 	<p>
 		<%= link_to 'Home', root_path %> | 
+		<%= link_to 'News', :controller => 'home', :action => 'news' %> |
 		<%= link_to 'About Us', :controller => 'home', :action => 'about' %> |
 		<%= link_to 'FAQ', :controller => 'home', :action => 'faq' %>
 		<% if logged_in? %>
